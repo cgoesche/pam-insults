@@ -20,7 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <security/pam_modules.h>
 #include <security/pam_ext.h>
-#include <security/_pam_types.h>
 
 #define INSULTS_LIST_LEN 24
 
