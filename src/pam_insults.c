@@ -21,9 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <security/pam_modules.h>
 #include <security/pam_ext.h>
 
-#define INSULTS_LIST_LEN 24
+#define INSULT_MAX_LENGTH 256
+#define NUM_OF_INSULTS(x) (sizeof(x) / INSULT_MAX_LENGTH)
 
-char insults[INSULTS_LIST_LEN][256] = { 
+// There are so many ways to insult users, how lovely :)
+char insults[][INSULT_MAX_LENGTH] = { 
         "Stop the idiotic arguing already.",
         "Get out!",
         "Maybe if you used more than just two fingers...",
@@ -31,7 +33,7 @@ char insults[INSULTS_LIST_LEN][256] = {
         "I'd like to know what drugs you take?",
         "Take a stress pill and think things over.",
         "What, what, what, what, what, what, what, what, what, what?",
-        "This is how the world should work, but in the real world it is just BS.",
+        "iPhone unavailable, try again in 24 hours.",
         "It can only be attributed to human error.",
         "BOB says:  You seem to have forgotten your passwd, enter another!",
         "You speak an infinite deal of nothing.",
@@ -47,15 +49,13 @@ char insults[INSULTS_LIST_LEN][256] = {
         "Why do you sit there looking like an envelope without any address on it?",
         "You wasted valuable CPU time with this non-sense",
         "Time to use a password manager dummy.",
-        "PAM: Access denied, I just don't like you."
+        "PAM: Access denied, because I don't like password."
 };
 
 static void insult()
 {       
-        int n; 
         srand(time(NULL));
-
-        n = rand() % INSULTS_LIST_LEN;
+        int n = rand() % NUM_OF_INSULTS(insults);
 
         fprintf(stderr, "%s\n", insults[n]);
 }
