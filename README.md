@@ -1,6 +1,6 @@
 # pam-insults
 
-**pam-insults** (**pam_insults**) is a PAM module that will print an insult to stderr(3) whenever a user enters a bad password before
+**pam-insults** is a PAM module that will print an insult to stderr(3) whenever a user enters a bad password before
 returning a failure code to the calling application through the PAM framework.
 
 > :note:
