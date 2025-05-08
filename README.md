@@ -3,8 +3,6 @@
 **pam-insults** is a PAM module that will print an insult to stderr(3) whenever a user enters a bad password before
 returning a failure code to the calling application through the PAM framework.
 
-> :note:
-> 
 > This module was primarily created for academic purposes, to get a better understanding of the PAM framework and its internals, but can still reliably deny access in failed authentication attempts just like the standard pam_deny module.
 
 ## Installation
@@ -45,8 +43,6 @@ make install
 
 This will install the **pam_insults.so** module in your systems PAM module directory and a manpage `pam_insults(8)` along with it in `/usr/share/man/man8`.
 
-> :note:
-> 
 > If you get an error message similar to `cp: cannot create regular file '/usr/lib/security/.': No such file or directory` then your system has the PAM modules installed in an unusual location. See below on how to find the PAM modules directory and fix this error.
 
 ### Finding the PAM module directory
