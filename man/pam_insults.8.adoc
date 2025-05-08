@@ -1,0 +1,69 @@
+//po4a: entry man manual
+= pam_insults(8)
+:doctype: manpage
+:man manual: System Administration
+:man source: pam-insults {release-version}
+:lib: pam_insults
+:firstversion: 0.1
+:page-layout: base
+
+== NAME
+
+pam_insults - PAM module to print an insult before denying access
+
+== SYNOPSIS
+
+*pam_insults.so* 
+
+== DESCRIPTION
+
+pam_insults is a PAM module that will print an insult to stderr(3) whenever a user enters a bad password and subsequently
+returns a failure to the calling application through the PAM framework. It essentially returns the same values 
+as the pam_deny module and can also be used to deny access.
+
+== OPTIONS
+
+This module does not recognise any options.
+
+== MODULE TYPES PROVIDED
+
+All module types (account, auth, password and session) are provided.
+
+== RETURN VALUES
+
+*PAM_AUTH_ERR*::
+This is returned by the account and auth services. 
+
+*PAM_CRED_ERR*::
+This is returned by the setcred function. 
+
+*PAM_AUTHTOK_ERR*::
+This is returned by the password service. 
+
+*PAM_SESSION_ERR*::
+This is returned by the session service. 
+
+*PAM_IGNORE*::
+Returned by service types which do nothing.
+
+== EXAMPLES
+Add the following lines to e.g. /etc/pam.d/system-auth to print an insult and deny access whenever a user enters a bad password:
+
+auth    sufficient      pam_unix.so nullok
+auth    required        pam_insults.so
+auth    required        pam_deny.so
+
+The system administrator can decide to replace the pam_deny module with pam_insults or set the control value to 
+'optional' and keep pam_deny as the last module in the stack.
+
+== AUTHOR
+
+pam_insults was written by Christian Goeschel Ndjomouo <cgoesc2@wgu.edu>.
+
+== SEE ALSO
+
+*pam_deny*(8), *pam.conf*(5), *pam.d*(5), *pam*(8)
+
+== REPORTING BUGS
+
+For bug reports, use the https://github.com/cgoesche/pam-insults/issues.
