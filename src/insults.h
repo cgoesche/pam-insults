@@ -22,7 +22,7 @@ static const char _insults[][_INSULT_MAX_LENGTH]= {
         "I'd challenge you to a battle of wits, but I see you are unarmed.",
         "I see you're playing stupid again. And you're winning.",
         "I'm reporting you ... and it's not for what you think.",
-        "look who forgot his password, again.",
+        "Look who forgot his password, again.",
         "AGI is not even necessary at this point, a few GPUs will do the job.",
         "PAM: Account locked for 3 years.",
         "Some cause happiness wherever they go; others whenever they go.",

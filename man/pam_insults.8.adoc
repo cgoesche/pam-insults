@@ -50,7 +50,7 @@ Returned by service types which do nothing.
 Add a line with pam_insults like below to e.g. /etc/pam.d/system-auth to print an insult and deny access whenever a user enters a bad password:
 
 auth    sufficient      pam_unix.so nullok +
-auth    required        pam_insults.so +
+auth    requisite       pam_insults.so +
 auth    required        pam_deny.so +
 
 The system administrator can decide to replace the pam_deny module with pam_insults or set the control value to 
