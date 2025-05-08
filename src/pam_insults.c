@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 #include <security/pam_modules.h>
@@ -27,15 +28,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 static void 
 insult()
 {
+        size_t size; 
+        size_t i;
+        char *ins;
+
         srand(time(NULL));
-        size_t size = NUM_OF_INSULTS(insults);
-        size_t i = rand() % size;
+
+        size = _NUM_OF_INSULTS(_insults);
+        i = rand() % size;
+        ins = (char *)malloc(_INSULT_MAX_LENGTH);
 
         if (i >= 0 && i < size) {
-                fprintf(stderr, "%s\n", insults[i]);
+                strcpy(ins, _insults[i]);
         } else {
-                fprintf(stderr, "Get out, you are not welcome here!\n"); 
+                strcpy(ins, _DEFAULT_INSULT); 
         }
+        fprintf(stderr, "%s\n", ins);
 }
 
 // PAM function definitions

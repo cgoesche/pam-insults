@@ -17,7 +17,7 @@ pam_insults - PAM module to print an insult before denying access
 
 == DESCRIPTION
 
-pam_insults is a PAM module that will print an insult to stderr(3) whenever a user enters a bad password and subsequently
+pam_insults is a PAM module that will print an insult to stderr(3) whenever a user enters a bad password, and it subsequently
 returns a failure to the calling application through the PAM framework. It essentially returns the same values 
 as the pam_deny module and can also be used to deny access.
 
@@ -47,11 +47,11 @@ This is returned by the session service.
 Returned by service types which do nothing.
 
 == EXAMPLES
-Add the following lines to e.g. /etc/pam.d/system-auth to print an insult and deny access whenever a user enters a bad password:
+Add a line with pam_insults like below to e.g. /etc/pam.d/system-auth to print an insult and deny access whenever a user enters a bad password:
 
-auth    sufficient      pam_unix.so nullok
-auth    required        pam_insults.so
-auth    required        pam_deny.so
+auth    sufficient      pam_unix.so nullok +
+auth    required        pam_insults.so +
+auth    required        pam_deny.so +
 
 The system administrator can decide to replace the pam_deny module with pam_insults or set the control value to 
 'optional' and keep pam_deny as the last module in the stack.
@@ -62,8 +62,8 @@ pam_insults was written by Christian Goeschel Ndjomouo <cgoesc2@wgu.edu>.
 
 == SEE ALSO
 
-*pam_deny*(8), *pam.conf*(5), *pam.d*(5), *pam*(8)
+*pam.conf*(5), *pam.d*(5), *pam_deny*(8), *pam*(8)
 
 == REPORTING BUGS
 
-For bug reports, use the https://github.com/cgoesche/pam-insults/issues.
+For bug reports, open an issue here: https://github.com/cgoesche/pam-insults/issues.

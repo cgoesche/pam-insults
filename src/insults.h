@@ -1,7 +1,11 @@
-#define INSULT_MAX_LENGTH 256
-#define NUM_OF_INSULTS(x) (sizeof(x) / INSULT_MAX_LENGTH)
+#ifndef INSULTS_H
+#define INSULTS_H
 
-static const char insults[][INSULT_MAX_LENGTH]= { 
+#define _INSULT_MAX_LENGTH 128
+#define _NUM_OF_INSULTS(x) (sizeof(x) / _INSULT_MAX_LENGTH)
+#define _DEFAULT_INSULT "Get out, you are not welcome here!"
+
+static const char _insults[][_INSULT_MAX_LENGTH]= {
         "Stop the idiotic arguing already.",
         "Get out, you are not welcome here!",
         "Maybe if you used more than just two fingers...",
@@ -19,7 +23,7 @@ static const char insults[][INSULT_MAX_LENGTH]= {
         "I see you're playing stupid again. And you're winning.",
         "I'm reporting you ... and it's not for what you think.",
         "look who forgot his password, again.",
-        "AGI is not even necessary at this point anymore, a few GPUs will easily replace you.",
+        "AGI is not even necessary at this point, a few GPUs will do the job.",
         "PAM: Account locked for 3 years.",
         "Some cause happiness wherever they go; others whenever they go.",
         "Why do you sit there looking like an envelope without any address on it?",
@@ -27,4 +31,7 @@ static const char insults[][INSULT_MAX_LENGTH]= {
         "Time to use a password manager, dummy.",
         "Eww, what a nasty password. Access denied!",
         "You do that again and see what happens...",
+        "Pathetic!"
 };
+
+#endif // INSULTS_H
