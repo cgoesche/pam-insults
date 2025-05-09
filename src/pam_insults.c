@@ -16,6 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <libintl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,7 +24,40 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <security/pam_modules.h>
 
-#include "insults.h"
+#include "lib/i18n.h"
+
+#define _INSULT_MAX_LENGTH 128
+#define _NUM_OF_INSULTS(x) (sizeof(x) / _INSULT_MAX_LENGTH)
+#define _DEFAULT_INSULT _("Get out, you are not welcome here!")
+
+static const char _insults[][_INSULT_MAX_LENGTH]= {
+        N_("Stop the idiotic arguing already."),
+        N_("Get out, you are not welcome here!"),
+        N_("Maybe if you used more than just two fingers..."),
+        N_("Listen, broccoli brains, I don't have time to listen to this trash."),
+        N_("I'd like to know what drugs you take?"),
+        N_("Take a stress pill and think things over."),
+        N_("What, what, what, what, what, what, what, what, what, what?"),
+        N_("iPhone unavailable, try again in 24 hours."),
+        N_("It can only be attributed to human error."),
+        N_("BOB says:  You seem to have forgotten your passwd, enter another!"),
+        N_("You speak an infinite deal of nothing."),
+        N_("Have you considered trying to match wits with a rutabaga?"),
+        N_("We don't break user space!"),
+        N_("I'd challenge you to a battle of wits, but I see you are unarmed."),
+        N_("I see you're playing stupid again. And you're winning."),
+        N_("I'm reporting you ... and it's not for what you think."),
+        N_("Look who forgot his password, again."),
+        N_("AGI is not even necessary at this point, a few GPUs will do the job."),
+        N_("PAM: Account locked for 3 years."),
+        N_("Some cause happiness wherever they go; others whenever they go."),
+        N_("Why do you sit there looking like an envelope without any address on it?"),
+        N_("You wasted valuable CPU time with this non-sense."),
+        N_("Time to use a password manager, dummy."),
+        N_("Eww, what a nasty password. Access denied!"),
+        N_("You do that again and see what happens..."),
+        N_("Pathetic!")
+};
 
 static void 
 insult()
@@ -34,12 +68,16 @@ insult()
 
         srand(time(NULL));
 
+        // Enable localization of insults via gettext
+        bindtextdomain(_DOMAINNAME, _LOCALEDIR);
+        textdomain(_DOMAINNAME);
+
         size = _NUM_OF_INSULTS(_insults);
         i = rand() % size;
         ins = (char *)malloc(_INSULT_MAX_LENGTH);
 
         if (i >= 0 && i < size) {
-                strcpy(ins, _insults[i]);
+                strcpy(ins, _(_insults[i]));
         } else {
                 strcpy(ins, _DEFAULT_INSULT); 
         }

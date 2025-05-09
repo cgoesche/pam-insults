@@ -1,0 +1,122 @@
+# Kirghiz translations for pam-insults package.
+# Copyright (C) 2025 Christian Goeschel Ndjomouo
+# This file is distributed under the same license as the pam-insults package.
+# Christian Goeschel Ndjomouo <cgoesc2@wgu.edu>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pam-insults 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/cgoesche/pam-insults/issues\n"
+"POT-Creation-Date: 2025-05-09 01:58-0400\n"
+"PO-Revision-Date: 2025-05-09 01:58-0400\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/pam_insults.c:31 src/pam_insults.c:35
+msgid "Get out, you are not welcome here!"
+msgstr ""
+
+#: src/pam_insults.c:34
+msgid "Stop the idiotic arguing already."
+msgstr ""
+
+#: src/pam_insults.c:36
+msgid "Maybe if you used more than just two fingers..."
+msgstr ""
+
+#: src/pam_insults.c:37
+msgid "Listen, broccoli brains, I don't have time to listen to this trash."
+msgstr ""
+
+#: src/pam_insults.c:38
+msgid "I'd like to know what drugs you take?"
+msgstr ""
+
+#: src/pam_insults.c:39
+msgid "Take a stress pill and think things over."
+msgstr ""
+
+#: src/pam_insults.c:40
+msgid "What, what, what, what, what, what, what, what, what, what?"
+msgstr ""
+
+#: src/pam_insults.c:41
+msgid "iPhone unavailable, try again in 24 hours."
+msgstr ""
+
+#: src/pam_insults.c:42
+msgid "It can only be attributed to human error."
+msgstr ""
+
+#: src/pam_insults.c:43
+msgid "BOB says:  You seem to have forgotten your passwd, enter another!"
+msgstr ""
+
+#: src/pam_insults.c:44
+msgid "You speak an infinite deal of nothing."
+msgstr ""
+
+#: src/pam_insults.c:45
+msgid "Have you considered trying to match wits with a rutabaga?"
+msgstr ""
+
+#: src/pam_insults.c:46
+msgid "We don't break user space!"
+msgstr ""
+
+#: src/pam_insults.c:47
+msgid "I'd challenge you to a battle of wits, but I see you are unarmed."
+msgstr ""
+
+#: src/pam_insults.c:48
+msgid "I see you're playing stupid again. And you're winning."
+msgstr ""
+
+#: src/pam_insults.c:49
+msgid "I'm reporting you ... and it's not for what you think."
+msgstr ""
+
+#: src/pam_insults.c:50
+msgid "Look who forgot his password, again."
+msgstr ""
+
+#: src/pam_insults.c:51
+msgid "AGI is not even necessary at this point, a few GPUs will do the job."
+msgstr ""
+
+#: src/pam_insults.c:52
+msgid "PAM: Account locked for 3 years."
+msgstr ""
+
+#: src/pam_insults.c:53
+msgid "Some cause happiness wherever they go; others whenever they go."
+msgstr ""
+
+#: src/pam_insults.c:54
+msgid ""
+"Why do you sit there looking like an envelope without any address on it?"
+msgstr ""
+
+#: src/pam_insults.c:55
+msgid "You wasted valuable CPU time with this non-sense."
+msgstr ""
+
+#: src/pam_insults.c:56
+msgid "Time to use a password manager, dummy."
+msgstr ""
+
+#: src/pam_insults.c:57
+msgid "Eww, what a nasty password. Access denied!"
+msgstr ""
+
+#: src/pam_insults.c:58
+msgid "You do that again and see what happens..."
+msgstr ""
+
+#: src/pam_insults.c:59
+msgid "Pathetic!"
+msgstr ""
