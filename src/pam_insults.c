@@ -82,6 +82,7 @@ insult()
                 strcpy(ins, _DEFAULT_INSULT); 
         }
         fprintf(stderr, "%s\n", ins);
+        free(ins);
 }
 
 // PAM function definitions
