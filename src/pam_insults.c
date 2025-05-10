@@ -20,69 +20,108 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <time.h>
 
 #include <security/pam_modules.h>
 
-#include "lib/i18n.h"
+#include "lib/insults.h"
 
-#define _INSULT_MAX_LENGTH 128
-#define _NUM_OF_INSULTS(x) (sizeof(x) / _INSULT_MAX_LENGTH)
-#define _DEFAULT_INSULT _("Get out, you are not welcome here!")
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+#define _ARG_VALUE_LENGTH 32
 
-static const char _insults[][_INSULT_MAX_LENGTH]= {
-        N_("Stop the idiotic arguing already."),
-        N_("Get out, you are not welcome here!"),
-        N_("Maybe if you used more than just two fingers..."),
-        N_("Listen, broccoli brains, I don't have time to listen to this trash."),
-        N_("I'd like to know what drugs you take?"),
-        N_("Take a stress pill and think things over."),
-        N_("What, what, what, what, what, what, what, what, what, what?"),
-        N_("iPhone unavailable, try again in 24 hours."),
-        N_("It can only be attributed to human error."),
-        N_("BOB says:  You seem to have forgotten your passwd, enter another!"),
-        N_("You speak an infinite deal of nothing."),
-        N_("Have you considered trying to match wits with a rutabaga?"),
-        N_("We don't break user space!"),
-        N_("I'd challenge you to a battle of wits, but I see you are unarmed."),
-        N_("I see you're playing stupid again. And you're winning."),
-        N_("I'm reporting you ... and it's not for what you think."),
-        N_("Look who forgot his password, again."),
-        N_("AGI is not even necessary at this point, a few GPUs will do the job."),
-        N_("PAM: Account locked for 3 years."),
-        N_("Some cause happiness wherever they go; others whenever they go."),
-        N_("Why do you sit there looking like an envelope without any address on it?"),
-        N_("You wasted valuable CPU time with this non-sense."),
-        N_("Time to use a password manager, dummy."),
-        N_("Eww, what a nasty password. Access denied!"),
-        N_("You do that again and see what happens..."),
-        N_("Pathetic!")
+enum {
+        _QUIET_MODE = 1
 };
 
-static void 
-insult()
-{
-        size_t size; 
-        size_t i;
-        char *ins;
+struct ctrl {
+        int is_quiet_mode;                              // is quiet mode enabled ?
+        char *insult_type;                              // which type of insult, 'soft', 'hard' or 'unhinged' ?
+        char *insult;                                   // pointer to the selected insult
+};
 
+static inline const char * 
+get_pam_arg_value(const char *str, const char *prefix) 
+{
+        size_t prefix_len = strlen(prefix);
+
+        return strncmp(str, prefix, prefix_len) ? NULL : str + prefix_len;
+}
+
+static inline void 
+parse_pam_args(struct ctrl *c, int argc, const char **argv)
+{
+        if (argc >= 1) {
+                for (size_t i = 0; i < argc; i++) {
+                        const char *str;
+
+                        if (strcmp(argv[i], "quiet") == 0) {
+                                c->is_quiet_mode = _QUIET_MODE;
+                                break;
+                        } 
+                        else if ((str = get_pam_arg_value(argv[i], "type=")) != NULL) {
+                                strcpy(c->insult_type, str);
+                                continue;
+                        }
+                }
+        }
+}
+
+static inline void
+set_insult(struct ctrl *c, const char insult_list[][_MAX_INSULT_LENGTH], size_t list_len) 
+{       
+        size_t i;
         srand(time(NULL));
+
+        i = rand() % list_len;
+
+        if (i >= 0 && i <= list_len){
+                strcpy(c->insult, _(insult_list[i]));
+        } else {
+                strcpy(c->insult, _DEFAULT_INSULT); 
+        }
+} 
+
+static void 
+insult(int argc, const char **argv)
+{
+        size_t size;
+        struct ctrl c;
+        c.is_quiet_mode = !_QUIET_MODE;
+        c.insult_type = (char *)malloc(_ARG_VALUE_LENGTH);
+        c.insult = (char *)malloc(_MAX_INSULT_LENGTH);
 
         // Enable localization of insults via gettext
         bindtextdomain(_DOMAINNAME, _LOCALEDIR);
         textdomain(_DOMAINNAME);
 
-        size = _NUM_OF_INSULTS(_insults);
-        i = rand() % size;
-        ins = (char *)malloc(_INSULT_MAX_LENGTH);
+        parse_pam_args(&c, argc, argv);
 
-        if (i >= 0 && i < size) {
-                strcpy(ins, _(_insults[i]));
-        } else {
-                strcpy(ins, _DEFAULT_INSULT); 
+        // No need to proceed further if 'quiet' has been passed to the module
+        if (c.is_quiet_mode == _QUIET_MODE)
+                return;
+
+        if (strcmp(c.insult_type, "soft") == 0) {
+                size = _NUM_OF_INSULTS(_soft_insults);
+                set_insult(&c, _soft_insults, size);
         }
-        fprintf(stderr, "%s\n", ins);
-        free(ins);
+        else if (strcmp(c.insult_type, "hard") == 0) {
+                size = _NUM_OF_INSULTS(_hard_insults);
+                set_insult(&c, _hard_insults, size);
+        } 
+        else if (strcmp(c.insult_type, "unhinged") == 0) {
+                size = _NUM_OF_INSULTS(_unhinged_insults);
+                set_insult(&c, _unhinged_insults, size);
+        }
+        else {
+                size = _NUM_OF_INSULTS(_soft_insults);
+                set_insult(&c, _soft_insults, size);
+        }
+
+        fprintf(stderr, "%s\n", c.insult);
+
+        free(c.insult_type);
+        free(c.insult);
 }
 
 // PAM function definitions
@@ -91,14 +130,14 @@ insult()
 int 
 pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult();
+        insult(argc, argv);
         return PAM_AUTH_ERR;
 }
 
 int 
 pam_sm_setcred(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult();
+        insult(argc, argv);
         return PAM_CRED_ERR;
 }
 
@@ -106,7 +145,7 @@ pam_sm_setcred(pam_handle_t *pamh, int flags, int argc, const char **argv)
 int 
 pam_sm_acct_mgmt(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult();
+        insult(argc, argv);
         return PAM_AUTH_ERR;
 }
 
@@ -114,7 +153,7 @@ pam_sm_acct_mgmt(pam_handle_t *pamh, int flags, int argc, const char **argv)
 int 
 pam_sm_chauthtok(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult();
+        insult(argc, argv);
         return PAM_AUTHTOK_ERR;
 }
 

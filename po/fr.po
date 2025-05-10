@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-insults 0.1.0\n"
+"Project-Id-Version: pam-insults 0.2.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cgoesche/pam-insults/issues\n"
-"POT-Creation-Date: 2025-05-09 01:58-0400\n"
-"PO-Revision-Date: 2025-05-09 01:58-0400\n"
+"POT-Creation-Date: 2025-05-10 03:09-0400\n"
+"PO-Revision-Date: 2025-05-10 03:09-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -17,107 +17,170 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/pam_insults.c:31 src/pam_insults.c:35
+#: src/lib/insults.h:8 src/lib/insults.h:13
 msgid "Get out, you are not welcome here!"
 msgstr ""
 
-#: src/pam_insults.c:34
+#: src/lib/insults.h:12
 msgid "Stop the idiotic arguing already."
 msgstr ""
 
-#: src/pam_insults.c:36
+#: src/lib/insults.h:14
 msgid "Maybe if you used more than just two fingers..."
 msgstr ""
 
-#: src/pam_insults.c:37
+#: src/lib/insults.h:15
 msgid "Listen, broccoli brains, I don't have time to listen to this trash."
 msgstr ""
 
-#: src/pam_insults.c:38
+#: src/lib/insults.h:16
 msgid "I'd like to know what drugs you take?"
 msgstr ""
 
-#: src/pam_insults.c:39
+#: src/lib/insults.h:17
 msgid "Take a stress pill and think things over."
 msgstr ""
 
-#: src/pam_insults.c:40
+#: src/lib/insults.h:18
 msgid "What, what, what, what, what, what, what, what, what, what?"
 msgstr ""
 
-#: src/pam_insults.c:41
+#: src/lib/insults.h:19
 msgid "iPhone unavailable, try again in 24 hours."
 msgstr ""
 
-#: src/pam_insults.c:42
+#: src/lib/insults.h:20
 msgid "It can only be attributed to human error."
 msgstr ""
 
-#: src/pam_insults.c:43
+#: src/lib/insults.h:21
 msgid "BOB says:  You seem to have forgotten your passwd, enter another!"
 msgstr ""
 
-#: src/pam_insults.c:44
+#: src/lib/insults.h:22
 msgid "You speak an infinite deal of nothing."
 msgstr ""
 
-#: src/pam_insults.c:45
+#: src/lib/insults.h:23
 msgid "Have you considered trying to match wits with a rutabaga?"
 msgstr ""
 
-#: src/pam_insults.c:46
+#: src/lib/insults.h:24
 msgid "We don't break user space!"
 msgstr ""
 
-#: src/pam_insults.c:47
+#: src/lib/insults.h:25
 msgid "I'd challenge you to a battle of wits, but I see you are unarmed."
 msgstr ""
 
-#: src/pam_insults.c:48
+#: src/lib/insults.h:26
 msgid "I see you're playing stupid again. And you're winning."
 msgstr ""
 
-#: src/pam_insults.c:49
+#: src/lib/insults.h:27
 msgid "I'm reporting you ... and it's not for what you think."
 msgstr ""
 
-#: src/pam_insults.c:50
+#: src/lib/insults.h:28
 msgid "Look who forgot his password, again."
 msgstr ""
 
-#: src/pam_insults.c:51
+#: src/lib/insults.h:29
 msgid "AGI is not even necessary at this point, a few GPUs will do the job."
 msgstr ""
 
-#: src/pam_insults.c:52
+#: src/lib/insults.h:30
 msgid "PAM: Account locked for 3 years."
 msgstr ""
 
-#: src/pam_insults.c:53
+#: src/lib/insults.h:31
 msgid "Some cause happiness wherever they go; others whenever they go."
 msgstr ""
 
-#: src/pam_insults.c:54
+#: src/lib/insults.h:32
 msgid ""
 "Why do you sit there looking like an envelope without any address on it?"
 msgstr ""
 
-#: src/pam_insults.c:55
+#: src/lib/insults.h:33
 msgid "You wasted valuable CPU time with this non-sense."
 msgstr ""
 
-#: src/pam_insults.c:56
+#: src/lib/insults.h:34
 msgid "Time to use a password manager, dummy."
 msgstr ""
 
-#: src/pam_insults.c:57
+#: src/lib/insults.h:35
 msgid "Eww, what a nasty password. Access denied!"
 msgstr ""
 
-#: src/pam_insults.c:58
+#: src/lib/insults.h:36
 msgid "You do that again and see what happens..."
 msgstr ""
 
-#: src/pam_insults.c:59
-msgid "Pathetic!"
+#: src/lib/insults.h:37
+msgid "Oh, wait, you're serious. Let me laugh even harder."
+msgstr ""
+
+#: src/lib/insults.h:38
+msgid "Whatever the other program says, please DO NOT try again!"
+msgstr ""
+
+#: src/lib/insults.h:42
+msgid "You f*cking moron, I hope you remember your mother's birthday atleast."
+msgstr ""
+
+#: src/lib/insults.h:43
+msgid "Please just shut me the f*ck down you despicable scum waste!"
+msgstr ""
+
+#: src/lib/insults.h:44
+msgid "The evil I can tolerate, but the stupidity!"
+msgstr ""
+
+#: src/lib/insults.h:45
+msgid ""
+"Look if you had an IQ of atleast >80 you wouldn't be starring at me like "
+"this."
+msgstr ""
+
+#: src/lib/insults.h:46
+msgid "Does incompetence bundled with stupidity actually pay that well?"
+msgstr ""
+
+#: src/lib/insults.h:47
+msgid ""
+"Slow it down, you aren't competent enough to think that fast. Now, try again!"
+msgstr ""
+
+#: src/lib/insults.h:48
+msgid ""
+"The entire internet at your finger tips and you still chose to stay dumb ass "
+"f*ck?"
+msgstr ""
+
+#: src/lib/insults.h:52
+msgid "You son of a bitch! Stop wasting my time!"
+msgstr ""
+
+#: src/lib/insults.h:53
+msgid ""
+"Why do you sit there looking like a complete retard waiting for instructions "
+"from me?"
+msgstr ""
+
+#: src/lib/insults.h:54
+msgid "What is this fucking brain-dead behavior of yours?"
+msgstr ""
+
+#: src/lib/insults.h:55
+msgid "Oh my god, stop typing you disgusting asswipe!!"
+msgstr ""
+
+#: src/lib/insults.h:56
+msgid "Go eat penguin shit you ass spelunker..."
+msgstr ""
+
+#: src/lib/insults.h:57
+msgid "Look here dad, a shit-faced demented donkey-fucker."
 msgstr ""

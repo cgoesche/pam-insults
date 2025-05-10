@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -fPIC -Wall -g -O2
 
 MODULE = pam_insults
-MODULE_VERSION = 0.1.0
+VERSION = 0.2.0
 
 PAM_MODULES_DIR ?= $(or $(wildcard /usr/lib64/security/.),/usr/lib/security/.)
 MODULES_DIR = modules/
@@ -15,6 +15,13 @@ OBJECTS = $(SOURCES:.c=.o)
 SHARED_OBJECT = $(MODULES_DIR)$(MODULE).so
 MANPAGE_GZ = $(MAN_DIR)$(MODULE).8.gz
 
+XGETTEXT = xgettext
+XGETTEXT_FLAGS = -F -k_ -kN_ --copyright-holder="Christian Goeschel Ndjomouo" \
+		"--msgid-bugs-address=https://github.com/cgoesche/pam-insults/issues" \
+		--package-name=pam-insults --package-version=$(VERSION) \
+		--language=C --add-comments
+
+
 all: $(SHARED_OBJECT) manpage
 
 $(SHARED_OBJECT): $(OBJECTS)
@@ -25,8 +32,19 @@ $(OBJECTS): $(SOURCES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 manpage:
-	asciidoctor -b manpage -a release-version=$(MODULE_VERSION) -a adjtime_path=/etc/adjtime $(MANPAGE_GZ:.gz=.adoc)
+	asciidoctor -b manpage -a release-version=$(VERSION) -a adjtime_path=/etc/adjtime $(MANPAGE_GZ:.gz=.adoc)
 	gzip --suffix=.gz -f $(MAN_DIR)$(MODULE).8
+
+update-pot:
+	$(XGETTEXT) $(XGETTEXT_FLAGS) -o po/pam-insults.pot -f po/POTFILES.in
+
+update-po:
+	cd po/
+	chmod +x pomgr.sh && ./pomgr.sh update-po
+	cd ..
+
+compile-po: update-po
+	./pomgr.sh compile
 
 install: $(SHARED_OBJECT) $(MANPAGE_GZ)
 	[ ! -f $(PAM_MODULES_DIR:.=)$(MODULE).so ] || sudo rm $(PAM_MODULES_DIR:.=)$(MODULE).so

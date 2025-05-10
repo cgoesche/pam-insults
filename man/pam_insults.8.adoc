@@ -23,7 +23,12 @@ as the pam_deny module and can also be used to deny access.
 
 == OPTIONS
 
-This module does not recognise any options.
+quiet::
+        Turns off the printing of insults.
+
+type=type::
+        Sets the type of insults to print. Recognized values for type are soft', 'hard' and 'unhinged'.
+        The default is 'soft' when no or an unknown type is specified.
 
 == MODULE TYPES PROVIDED
 
@@ -53,7 +58,11 @@ auth    sufficient      pam_unix.so nullok +
 auth    requisite       pam_insults.so +
 auth    required        pam_deny.so +
 
-The system administrator can decide to replace the pam_deny module with pam_insults or set the control value to 
+Print harsher insults than the default (soft):
+
+auth    requisite       pam_insults.so type=hard
+
+Note: The system administrator can decide to replace the pam_deny module with pam_insults or set the control value to 
 'optional' and keep pam_deny as the last module in the stack.
 
 == AUTHOR
