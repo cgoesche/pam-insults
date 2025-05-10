@@ -4,7 +4,7 @@ declare -r PACKAGE="pam-insults"
 declare -r VERSION="$(head -n1 ../VERSION 2>/dev/null)"
 declare -r LOCALE_DIR="/usr/share/locale"
 
-declare -r POTFILE="pam-insuls.pot"
+declare -r POTFILE="pam-insults.pot"
 declare -r POTFILES_IN="POTFILES.in"
 
 function usage(){
