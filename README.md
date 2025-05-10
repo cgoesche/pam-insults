@@ -82,6 +82,14 @@ For Red-hat based systems there is mostly one file that provides a system wide P
 
 Here you can do the same as in the previous section with the difference that you do everything in the same file.
 
+### Options
+
+The module accepts the following two option arguments:
+
+`quiet` - Turns off the printing of insults.
+
+`type=` - Sets the type of insults to print. Recognized values for type are `soft`, `hard` and `unhinged`. The default is `soft` when no or an unknown type is specified.
+
 ## Testing
 
 If you have successfully followed all steps until here you are ready to test the insults. Simply run any command in the terminal that requires some sort of PAM authentication like `sudo su`, `passwd` or `su -`.
