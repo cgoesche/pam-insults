@@ -28,16 +28,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "lib/insults.h"
 
 #define min(a, b) (((a) < (b)) ? (a) : (b))
-#define _ARG_VALUE_LENGTH 32
+#define _is_not_too_long(str, s) strlen(str) <= s ? 1 : 0
+
+#define _MAX_ARG_VALUE_LENGTH 32 * sizeof(char)
 
 enum {
         _QUIET_MODE = 1
 };
 
 struct ctrl {
-        int is_quiet_mode;                              // is quiet mode enabled ?
-        char *insult_type;                              // which type of insult, 'soft', 'hard' or 'unhinged' ?
-        char *insult;                                   // pointer to the selected insult
+        int is_quiet_mode;      // is quiet mode enabled ?
+        char *insult_type;      // which type of insult, 'soft', 'hard' or 'unhinged' ?
+        char *insult;           // pointer to the selected insult
 };
 
 static inline const char * 
@@ -60,7 +62,11 @@ parse_pam_args(struct ctrl *c, int argc, const char **argv)
                                 break;
                         } 
                         else if ((str = get_pam_arg_value(argv[i], "type=")) != NULL) {
-                                strcpy(c->insult_type, str);
+                                if (_is_not_too_long(str, _MAX_ARG_VALUE_LENGTH) != 0){
+                                        strcpy(c->insult_type, str);
+                                } else {
+                                        strcpy(c->insult_type, _DEFAULT_INSULT_TYPE);
+                                }
                                 continue;
                         }
                 }
@@ -75,7 +81,7 @@ set_insult(struct ctrl *c, const char insult_list[][_MAX_INSULT_LENGTH], size_t 
 
         i = rand() % list_len;
 
-        if (i >= 0 && i <= list_len){
+        if (i >= 0 && i <= list_len && (_is_not_too_long(insult_list[i], _MAX_INSULT_LENGTH)) != 0){
                 strcpy(c->insult, _(insult_list[i]));
         } else {
                 strcpy(c->insult, _DEFAULT_INSULT); 
@@ -88,10 +94,10 @@ insult(int argc, const char **argv)
         size_t size;
         struct ctrl c;
         c.is_quiet_mode = !_QUIET_MODE;
-        c.insult_type = (char *)malloc(_ARG_VALUE_LENGTH);
+        c.insult_type = (char *)malloc(_MAX_ARG_VALUE_LENGTH + 1);
         c.insult = (char *)malloc(_MAX_INSULT_LENGTH);
 
-        // Enable localization of insults via gettext
+        // Enable localization of insults with GNU gettext
         bindtextdomain(_DOMAINNAME, _LOCALEDIR);
         textdomain(_DOMAINNAME);
 

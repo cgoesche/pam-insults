@@ -3,10 +3,13 @@
 
 #include "i18n.h"
 
-#define _MAX_INSULT_LENGTH 128
+#define _MAX_INSULT_LENGTH 256
 #define _NUM_OF_INSULTS(_arr) (sizeof(_arr) / _MAX_INSULT_LENGTH)
 #define _DEFAULT_INSULT _("Get out, you are not welcome here!")
-#define _DEFAULT_INSULT_MODE "hard"
+#define _INSULT_TYPE_SOFT "soft"
+#define _INSULT_TYPE_HARD  "hard"
+#define _INSULT_TYPE_UNHINGED "unhinged"
+#define _DEFAULT_INSULT_TYPE _INSULT_TYPE_SOFT
 
 static const char _soft_insults[][_MAX_INSULT_LENGTH]= {
         N_("Stop the idiotic arguing already."),
