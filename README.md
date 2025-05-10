@@ -109,6 +109,81 @@ Eww, what a nasty password. Access denied!
 sudo: 3 incorrect password attempts
 ```
 
+## Internalization
+
+If you wish to have insults in different languages you can translate the default English version with the help of the auto-generated template files in `po/`.
+The internalization has been implemented using GNU gettext and relies on binary GNU MO files (.mo). Below are instructions on how to compile these binaries and install them 
+on your system with the help of the `po/pomgr.sh` script.
+
+### Preparation
+
+Clean up all temporary files or previously generated MO files.
+
+```
+cd po/
+./pomgr.sh clean
+```
+
+### Translation
+
+Locate your preferred locales `.po` file and open it with your favorite text editor or with a specialized tool like Poedit.
+For example, if you want to translate for the `German, Germany` locale, you would need to edit `po/de.po`.
+
+In the file itself you will find an initial comment section, header fields and the actual messages (insults) that you want to translate.
+You can edit the header fields if you wish but it is not necessary for this use case. What you want to focus on are the `msgstr` lines.
+
+Simply put your translation in quotes below the respective `msgid` and proceed until you are done.
+
+An example for the German language:
+
+```
+#: ../src/lib/insults.h:41
+msgid "Whatever the other program says, please DO NOT try again!"
+msgstr "Was auch immer das andere Programm sagt, versuch es bitte NICHT erneut!"
+```
+
+More information on how to translate `.po` files can be found here: [Translation Project](https://translationproject.org/html/translators.html).
+
+### Compilation
+
+Once you have finished your translation it is time to compile the `.po` files to `.mo`, as shown below.
+
+```
+./pomgr.sh compile <LOCALE>
+```
+
+Replace `<LOCALE>` with your languages locale abbreviation which can be derived from the file name itself, e.g. for `German, Germany = de`, 
+`French, France = fr`, and so on.
+
+Optionally, you can also run `./pomgr.sh compile-all` which will compile MO files for all locales present in `po/`.
+
+### Installation
+
+Finally, you can install your compiled MO files into your system with this command:
+
+```
+sudo ./pomgr.sh install
+```
+
+The script will intelligently determine the right directory for each MO file and change its final name to `pam-insults.mo` in the respective directories in
+`/usr/share/locale/<LOCALE>/LC_MESSAGES/`.
+
+### Testing
+
+To test the translation, you can either change the systems language in your desktop environments settings or by exporting `LC_MESSAGES` with the 
+appropriate locale value.
+
+An example for the `German, Germany` locale:
+
+```
+$ export LC_MESSAGES="de_DE.UTF-8"
+$ passwd
+Geben Sie das aktuelle Passwort ein:
+Raus hier, du bist hier nicht willkommen!
+passwd: Fehler beim Ändern des Authentifizierungstoken
+passwd: password unchanged
+```
+
 ## Feedback
 
 I highly appreciate and welcome all types of feedback and bug reports either via the issue section in this repo or via email cgoesc2@wgu.edu.
