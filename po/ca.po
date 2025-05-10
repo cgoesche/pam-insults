@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pam-insults 0.2.1-beta\n"
+"Project-Id-Version: pam-insults v0.2.1-beta.1\n"
 "Report-Msgid-Bugs-To: https://github.com/cgoesche/pam-insults/issues\n"
-"POT-Creation-Date: 2025-05-10 16:31-0400\n"
-"PO-Revision-Date: 2025-05-10 16:00-0400\n"
+"POT-Creation-Date: 2025-05-10 19:52-0400\n"
+"PO-Revision-Date: 2025-05-10 19:52-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: ca\n"
