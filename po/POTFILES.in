@@ -1,2 +1,2 @@
-src/pam_insults.c
-src/lib/insults.h
+../src/pam_insults.c
+../src/lib/insults.h
