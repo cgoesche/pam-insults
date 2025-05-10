@@ -65,7 +65,7 @@ function _install() {
                         rm -f "${locale_dir}/${mo_file}"
                 fi
 
-                if ! cp "${mo_file}" "${locale_dir}"/ ; then
+                if ! cp "${mo_file}" "${locale_dir}/${PACKAGE}.mo" ; then
                         echo "Failed installation for ${mo_file}"
                         continue
                 fi
