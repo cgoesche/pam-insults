@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -fPIC -Wall -g -O2
 
 MODULE = pam_insults
-VERSION = 0.2.0
+VERSION = 0.2.1-beta
 
 PAM_MODULES_DIR ?= $(or $(wildcard /usr/lib64/security/.),/usr/lib/security/.)
 MODULES_DIR = modules/

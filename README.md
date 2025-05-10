@@ -3,11 +3,11 @@
 **pam-insults** is a PAM module that will print an insult to stderr(3) whenever a user enters a bad password before
 returning a failure code to the calling application through the PAM framework.
 
-> This module was primarily created for academic purposes, to get a better understanding of the PAM framework and its internals, but can still reliably deny access in failed authentication attempts just like the standard pam_deny module.
+> This module was primarily created for academic purposes, to get a better understanding of the PAM framework and its internals, but can still reliably deny access in failed authentication attempts just like the standard pam_deny module. Nevertheless, as of now I do not recommend installing the module in a highly critical production environment since it requires more battle testing and peer reviews.
 
 ## Installation
 
-Packaging efforts are ongoing and once uploaded to the major OS archives this section will be updated with instructions.
+Packaging efforts for major distributions are planned for the future once the module is stable enough.
 
 ## Building
 
