@@ -53,23 +53,24 @@ function gen_po() {
 function _install() {
         while read -r mo_file; do
                 local locale_dir="${LOCALE_DIR}/${mo_file/.mo/}/LC_MESSAGES"
-                
+                local target_mo_file="${PACKAGE}.mo"
+
                 if [ ! -d "${locale_dir}" ]; then
                         echo "${locale_dir} not found ... skipping installation for ${mo_file}" 
                         continue
                 fi
 
                 echo "Installing ${mo_file} -> ${locale_dir}" 
-                if [ -f "${locale_dir}/${mo_file}" ]; then
-                        echo "Removing existing ${locale_dir}/${mo_file}"
-                        rm -f "${locale_dir}/${mo_file}"
+                if [ -f "${locale_dir}/${target_mo_file}" ]; then
+                        echo "Removing existing ${locale_dir}/${target_mo_file}"
+                        rm -f "${locale_dir}/${target_mo_file}"
                 fi
 
-                if ! cp "${mo_file}" "${locale_dir}/${PACKAGE}.mo" ; then
+                if ! cp "${mo_file}" "${locale_dir}/${target_mo_file}" ; then
                         echo "Failed installation for ${mo_file}"
                         continue
                 fi
-                echo "Installed ${mo_file}"
+                echo "Installed ${mo_file} -> ${locale_dir}/${target_mo_file}"
 
         done < <(ls -F1 -- *.mo)
 }
