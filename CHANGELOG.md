@@ -2,6 +2,23 @@
 
 This changelog documents all notable changes made to pam-insults.
 
+### [0.2.1-beta.2] - 2025-05-11
+
+### 🐛 Bug Fixes
+
+- Fix typos in src/lib/insults.h - ([29300bc](https://github.com/cgoesche/pam-insults//commit/29300bcbae4a205a0ff6a49281cd286a1a537661))
+
+### 📚 Documentation
+
+- Change section title in README.md - ([cac7aa8](https://github.com/cgoesche/pam-insults//commit/cac7aa885d2672c1c416d1125c7bdcae310480b4))
+- Fix typo in README.md - ([b4a1532](https://github.com/cgoesche/pam-insults//commit/b4a153259c29d3d3ddae13c8b7e25a67ea9ad0f1))
+- Add 'gettext' to dependency section in README.md - ([7c1802a](https://github.com/cgoesche/pam-insults//commit/7c1802a9e0dca3590f30200f03fe1cd50f7c0929))
+
+### ⚙️ Miscellaneous Tasks
+
+- Add CHANGELOG.md - ([18e15b0](https://github.com/cgoesche/pam-insults//commit/18e15b075c72057bc74063c8903565d6bfeaec35))
+- Update POT files - ([cf13748](https://github.com/cgoesche/pam-insults//commit/cf13748cb1d760472dc6dce0679ecceb6d5d5b9c))
+
 ### [0.2.1-beta.1] - 2025-05-10
 
 ### 🐛 Bug Fixes
