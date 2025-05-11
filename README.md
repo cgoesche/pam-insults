@@ -109,7 +109,7 @@ Eww, what a nasty password. Access denied!
 sudo: 3 incorrect password attempts
 ```
 
-## Internalization
+## Localization
 
 If you wish to have insults in different languages you can translate the default English version with the help of the auto-generated template files in `po/`.
 The internalization has been implemented using GNU gettext and relies on binary GNU MO files (.mo). Below are instructions on how to compile these binaries and install them 
