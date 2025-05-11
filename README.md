@@ -112,7 +112,7 @@ sudo: 3 incorrect password attempts
 ## Localization
 
 If you wish to have insults in different languages you can translate the default English version with the help of the auto-generated template files in `po/`.
-The internalization has been implemented using GNU gettext and relies on binary GNU MO files (.mo). Below are instructions on how to compile these binaries and install them 
+The localization has been implemented using GNU gettext and relies on binary GNU MO files (.mo). Below are instructions on how to compile these binaries and install them 
 on your system with the help of the `po/pomgr.sh` script.
 
 ### Preparation
