@@ -48,12 +48,12 @@ static const char _hard_insults[][_MAX_INSULT_LENGTH]= {
         N_("Look if you had an IQ of atleast >80 you wouldn't be starring at me like this."),
         N_("Does incompetence bundled with stupidity actually pay that well?"),
         N_("Slow it down, you aren't competent enough to think that fast. Now, try again!"),
-        N_("The entire internet at your finger tips and you still chose to stay dumb ass f*ck?"),
+        N_("The entire internet at your fingertips and you still chose to stay dumb as f*ck?"),
 };
 
 static const char _unhinged_insults[][_MAX_INSULT_LENGTH]= {
         N_("You son of a bitch! Stop wasting my time!"),
-        N_("Why do you sit there looking like a complete retard waiting for instructions from me?"),
+        N_("Why do you sit there looking like a complete bastard waiting for his missing daddy?"),
         N_("What is this fucking brain-dead behavior of yours?"),
         N_("Oh my god, stop typing you disgusting asswipe!!"),
         N_("Go eat penguin shit you ass spelunker..."),

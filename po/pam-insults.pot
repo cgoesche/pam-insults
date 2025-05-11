@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pam-insults v0.2.1-beta.1\n"
 "Report-Msgid-Bugs-To: https://github.com/cgoesche/pam-insults/issues\n"
-"POT-Creation-Date: 2025-05-10 19:52-0400\n"
+"POT-Creation-Date: 2025-05-10 20:38-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: ../src/lib/insults.h:51
 msgid ""
-"The entire internet at your finger tips and you still chose to stay dumb ass "
+"The entire internet at your fingertips and you still chose to stay dumb as "
 "f*ck?"
 msgstr ""
 
@@ -165,8 +165,8 @@ msgstr ""
 
 #: ../src/lib/insults.h:56
 msgid ""
-"Why do you sit there looking like a complete retard waiting for instructions "
-"from me?"
+"Why do you sit there looking like a complete bastard waiting for his missing "
+"daddy?"
 msgstr ""
 
 #: ../src/lib/insults.h:57
