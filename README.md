@@ -18,13 +18,13 @@ Building the module is fairly simple and straightforward. Simply follow the step
 #### Debian/Ubuntu
 
 ```
-sudo apt install git build-essential libpam0g-dev libpam-runtime asciidoctor manpages
+sudo apt install git build-essential libpam0g-dev libpam-runtime gettext asciidoctor manpages
 ```
 
 #### RHEL/Fedora/CentOS
 
 ```
-sudo dnf install git make gcc pam pam-devel asciidoctor man-pages
+sudo dnf install git make gcc pam pam-devel gettext asciidoctor man-pages
 ```
 
 ### Clone
