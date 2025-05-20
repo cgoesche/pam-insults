@@ -125,7 +125,7 @@ insult(int argc, const char **argv)
                 set_insult(&c, _soft_insults, size);
         }
 
-        fprintf(stdout, "%s\n", c.insult);
+        fprintf(stderr, "%s\n", c.insult);
 
         free(c.insult_type);
         free(c.insult);

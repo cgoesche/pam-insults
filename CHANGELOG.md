@@ -2,7 +2,13 @@
 
 This changelog documents all notable changes made to pam-insults.
 
-### [unreleased changes]
+### [0.2.1-beta.4] - 2025-05-20
+
+### 🐛 Bug Fixes
+
+- Print insults on STDERR - ([a99bf36](https://github.com/cgoesche/pam-insults//commit/a99bf3604182e3328241602dc1a695d352c40027))
+
+### [0.2.1-beta.3] - 2025-05-20
 
 ### 🐛 Bug Fixes
 
@@ -11,6 +17,7 @@ This changelog documents all notable changes made to pam-insults.
 ### ⚙️ Miscellaneous Tasks
 
 - Update CHANGELOG.md - ([d492460](https://github.com/cgoesche/pam-insults//commit/d492460df79d6bc6dfce0cc4906553edb3c906f8))
+- Update CHANGELOG - ([fb7cdde](https://github.com/cgoesche/pam-insults//commit/fb7cdde9bef79fc60a924fa121ac8237f6d6104d))
 
 ### [0.2.1-beta.2] - 2025-05-11
 
