@@ -2,6 +2,16 @@
 
 This changelog documents all notable changes made to pam-insults.
 
+### [unreleased changes]
+
+### 🐛 Bug Fixes
+
+- Free c.insult_type and c.insult in quiet mode as well - ([a9890c7](https://github.com/cgoesche/pam-insults//commit/a9890c7559acc480a42641cc44413eb059add88d))
+
+### ⚙️ Miscellaneous Tasks
+
+- Update CHANGELOG.md - ([d492460](https://github.com/cgoesche/pam-insults//commit/d492460df79d6bc6dfce0cc4906553edb3c906f8))
+
 ### [0.2.1-beta.2] - 2025-05-11
 
 ### 🐛 Bug Fixes
