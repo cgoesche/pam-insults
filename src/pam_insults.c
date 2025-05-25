@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <time.h>
 
 #include <security/pam_modules.h>
+#include <security/pam_ext.h>
 
 #include "lib/insults.h"
 
@@ -87,7 +88,7 @@ set_insult(struct ctrl *c, const char insult_list[][_MAX_INSULT_LENGTH], size_t 
 } 
 
 static void 
-insult(int argc, const char **argv)
+insult(pam_handle_t *pamh, int argc, const char **argv)
 {
         size_t size;
         struct ctrl c;
@@ -125,7 +126,7 @@ insult(int argc, const char **argv)
                 set_insult(&c, _soft_insults, size);
         }
 
-        fprintf(stderr, "%s\n", c.insult);
+        pam_error(pamh, "%s", c.insult);
 
         free(c.insult_type);
         free(c.insult);
@@ -137,14 +138,14 @@ insult(int argc, const char **argv)
 int 
 pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult(argc, argv);
+        insult(pamh, argc, argv);
         return PAM_AUTH_ERR;
 }
 
 int 
 pam_sm_setcred(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult(argc, argv);
+        insult(pamh, argc, argv);
         return PAM_CRED_ERR;
 }
 
@@ -152,7 +153,7 @@ pam_sm_setcred(pam_handle_t *pamh, int flags, int argc, const char **argv)
 int 
 pam_sm_acct_mgmt(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult(argc, argv);
+        insult(pamh, argc, argv);
         return PAM_AUTH_ERR;
 }
 
@@ -160,7 +161,7 @@ pam_sm_acct_mgmt(pam_handle_t *pamh, int flags, int argc, const char **argv)
 int 
 pam_sm_chauthtok(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-        insult(argc, argv);
+        insult(pamh, argc, argv);
         return PAM_AUTHTOK_ERR;
 }
 
