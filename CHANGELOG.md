@@ -2,6 +2,12 @@
 
 This changelog documents all notable changes made to pam-insults.
 
+### [0.2.2] - 2025-05-25
+
+### 🐛 Bug Fixes
+
+- Use pam_error() to deliver the insult message - ([ff8c980](https://github.com/cgoesche/pam-insults//commit/ff8c9809a81b2f0bc433eea9944c215981b67d33))
+
 ### [0.2.1-beta.4] - 2025-05-20
 
 ### 🐛 Bug Fixes
