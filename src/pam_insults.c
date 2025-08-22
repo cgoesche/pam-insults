@@ -52,22 +52,23 @@ get_pam_arg_value(const char *str, const char *prefix)
 static inline void 
 parse_pam_args(struct ctrl *c, int argc, const char **argv)
 {
-        if (argc >= 1) {
-                for (size_t i = 0; i < argc; i++) {
-                        const char *str;
+        if (argc <= 0)
+                return; 
+        
+        for (size_t i = 0; i < argc; i++) {
+                const char *str;
 
-                        if (strcmp(argv[i], "quiet") == 0) {
-                                c->is_quiet_mode = _QUIET_MODE;
-                                break;
-                        } 
-                        else if ((str = get_pam_arg_value(argv[i], "type=")) != NULL) {
-                                if (_STR_IS_NOT_TOO_LONG(str, _MAX_ARG_VALUE_LENGTH) != 0){
-                                        strcpy(c->insult_type, str);
-                                } else {
-                                        strcpy(c->insult_type, _DEFAULT_INSULT_TYPE);
-                                }
-                                continue;
+                if (strcmp(argv[i], "quiet") == 0) {
+                        c->is_quiet_mode = _QUIET_MODE;
+                        break;
+                } 
+                else if ((str = get_pam_arg_value(argv[i], "type=")) != NULL) {
+                        if (_STR_IS_NOT_TOO_LONG(str, _MAX_ARG_VALUE_LENGTH) != 0){
+                                strcpy(c->insult_type, str);
+                        } else {
+                                strcpy(c->insult_type, _DEFAULT_INSULT_TYPE);
                         }
+                        continue;
                 }
         }
 }
