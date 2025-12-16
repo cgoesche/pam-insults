@@ -21,7 +21,7 @@ static const char _soft_insults[][_MAX_INSULT_LENGTH]= {
         N_("What, what, what, what, what, what, what, what, what, what?"),
         N_("iPhone unavailable, try again in 24 hours."),
         N_("It can only be attributed to human error."),
-        N_("BOB says:  You seem to have forgotten your passwd, enter another!"),
+        N_("BOB says: You seem to have forgotten your passwd, enter another!"),
         N_("You speak an infinite deal of nothing."),
         N_("Have you considered trying to match wits with a rutabaga?"),
         N_("We don't break user space!"),
