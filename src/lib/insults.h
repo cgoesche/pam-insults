@@ -38,23 +38,23 @@ static const char _soft_insults[][_MAX_INSULT_LENGTH]= {
         N_("Eww, what a nasty password. Access denied!"),
         N_("You do that again and see what happens..."),
         N_("Oh, wait, you're serious. Let me laugh even harder."),
-        N_("Whatever the other program says, please DO NOT try again!")
-        N_("That was Bob's password, not yours.")
-        N_("Almost. I think you have caps on.")
-        N_("Sorry, I can't decrypt your encrypted text, my dog ate my private key.")
-        N_("Did you drink a beer too much?")
-        N_("Have you tried to work as a password generator? I think that would suit you...")
-        N_("Password needs at least two special characters, four numbers, one kidney and yo mama.")
-        N_("You forgot to enter 'please'!")
-        N_("This maneuver's gonna cost us 51 years...")
-        N_("Did your cat just walk over your keyboard again?")
-        N_("'Login success!' I bet that's what you thought")
-        N_("Tip: Press the power button on your pc to skip the password entry.")
-        N_("Tip: Press Alt+F4 to skip the password entry.")
-        N_("Go out and touch some grass!")
-        N_("I wouldn't recommend you suicide linux...")
-        N_("Can't read the password. You need to shout it out loud.")
-        N_("Please enter passcode here: https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1")
+        N_("Whatever the other program says, please DO NOT try again!"),
+        N_("That was Bob's password, not yours."),
+        N_("Almost. I think you have caps on."),
+        N_("Sorry, I can't decrypt your encrypted text, my dog ate my private key."),
+        N_("Did you drink a beer too much?"),
+        N_("Have you tried to work as a password generator? I think that would suit you..."),
+        N_("Password needs at least two special characters, four numbers, one kidney and yo mama."),
+        N_("You forgot to enter 'please'!"),
+        N_("This maneuver's gonna cost us 51 years..."),
+        N_("Did your cat just walk over your keyboard again?"),
+        N_("'Login success!' I bet that's what you thought"),
+        N_("Tip: Press the power button on your pc to skip the password entry."),
+        N_("Tip: Press Alt+F4 to skip the password entry."),
+        N_("Go out and touch some grass!"),
+        N_("I wouldn't recommend you suicide linux..."),
+        N_("Can't read the password. You need to shout it out loud."),
+        N_("Please enter passcode here: https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1"),
 };
 
 static const char _hard_insults[][_MAX_INSULT_LENGTH]= {
