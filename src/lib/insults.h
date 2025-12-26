@@ -54,7 +54,11 @@ static const char _soft_insults[][_MAX_INSULT_LENGTH]= {
         N_("Go out and touch some grass!"),
         N_("I wouldn't recommend you suicide linux..."),
         N_("Can't read the password. You need to shout it out loud."),
-        N_("Please enter passcode here: https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1"),
+        N_("Click here if you forgot your password: https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1"),
+        N_("You are not in the sudoers file. This inci- wait... wrong program... *cough cough*"),
+        N_("Where did you learn to type?"),
+        N_("POV: You can't use the terminal."),
+        N_("Roses are red, violets are blue, you can't enter your password too..."),
 };
 
 static const char _hard_insults[][_MAX_INSULT_LENGTH]= {
@@ -74,6 +78,7 @@ static const char _unhinged_insults[][_MAX_INSULT_LENGTH]= {
         N_("Oh my god, stop typing you disgusting asswipe!!"),
         N_("Go eat penguin shit you ass spelunker..."),
         N_("Look here dad, a shit-faced demented donkey-fucker."),
+        N_("You expected to see something funny, right? Look into a mirror.")
 };
 
 #endif // _INSULTS_H
